@@ -54,8 +54,8 @@ This project was developed as a practical technical task and follows Laravel bes
 ## Installation & Setup (Backend + Frontend + Queue + Scheduler)
 
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/PrimusMAG/Simple-cart-practical-task-project.git
+cd Simple-cart-practical-task-project
 
 composer install
 npm install
