@@ -1,25 +1,73 @@
-# Laravel + React Starter Kit
+# Simple E-commerce Shopping Cart (Laravel + React)
 
-## Introduction
+A simple e-commerce shopping cart system built with **Laravel** and **React (Inertia)**.  
+Users can browse products, add items to cart, update quantities, remove items, and checkout.  
+Cart data is persisted in the database and associated with the authenticated user (**not** session/local storage).
 
-Our React starter kit provides a robust, modern starting point for building Laravel applications with a React frontend using [Inertia](https://inertiajs.com).
+This project was developed as a practical technical task and follows Laravel best practices:
+- Laravel Starter Kit authentication
+- Policies for authorization and data isolation
+- Form Request validation
+- Service layer for business logic
+- Queue jobs for background processing (emails)
+- Scheduled jobs (cron) for daily reports
 
-Inertia allows you to build modern, single-page React applications using classic server-side routing and controllers. This lets you enjoy the frontend power of React combined with the incredible backend productivity of Laravel and lightning-fast Vite compilation.
+---
 
-This React starter kit utilizes React 19, TypeScript, Tailwind, and the [shadcn/ui](https://ui.shadcn.com) and [radix-ui](https://www.radix-ui.com) component libraries.
+## Features
 
-## Official Documentation
+### User Features
+- ✅ Authentication (Laravel Starter Kit)
+- ✅ Browse products (name, price, stock_quantity)
+- ✅ Add items to cart
+- ✅ Update cart item quantities
+- ✅ Remove cart items
+- ✅ Checkout and generate orders
+- ✅ Cart persistence per authenticated user (DB-based)
 
-Documentation for all Laravel starter kits can be found on the [Laravel website](https://laravel.com/docs/starter-kits).
+### System Automation
+- ✅ Low Stock Notification (Laravel Job/Queue + Email)
+- ✅ Daily Sales Report (Laravel Scheduled Job + Email)
 
-## Contributing
+---
 
-Thank you for considering contributing to our starter kit! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Tech Stack
+- **Backend:** Laravel
+- **Frontend:** React (Inertia)
+- **Styling:** Tailwind CSS
+- **Database:** MySQL / PostgreSQL / SQLite (configurable via `.env`)
+- **Queue:** Laravel Queue (Database/Redis supported)
+- **Scheduler:** Laravel Scheduler + Cron
+- **Version Control:** Git / GitHub
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Requirements
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- Database (MySQL/PostgreSQL/SQLite)
+- Mail Service (Mailtrap / SMTP)
 
-## License
+---
 
-The Laravel + React starter kit is open-sourced software licensed under the MIT license.
+## Installation & Setup (Backend + Frontend + Queue + Scheduler)
+
+```bash
+git clone <your-repo-url>
+cd <your-project-folder>
+
+composer install
+npm install
+
+cp .env.example .env
+php artisan key:generate
+
+php artisan migrate
+php artisan db:seed
+
+npm run dev
+php artisan serve
+
+php artisan queue:work
+php artisan schedule:run
